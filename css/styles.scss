@@ -181,7 +181,6 @@ nav{
 }
 
 .slider li{
-  background-image: url("../assests/restuarnt.jpg");
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 320%;
@@ -191,7 +190,6 @@ nav{
 
 
   @media screen and (min-width: 576px) {
-    background-image: url("../assests/banner.jpg");
     background-position: right top;
     background-size: 200%;
   }
@@ -207,6 +205,25 @@ nav{
 
   
 }
+
+.ones {
+
+    background-image: url("../assests/restuarnt.jpg");
+    @media screen and (min-width: 576px) {
+      background-image: url("../assests/banner.jpg");
+  
+    }
+ 
+}
+
+.twos {
+    background-image: url("../assests/banner3.jpg");
+
+}
+
+.threes {
+  background-image: url("../assests/banner4.jpg");
+} 
 
 .banner-content {
   position: absolute;

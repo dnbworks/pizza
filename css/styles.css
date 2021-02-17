@@ -202,7 +202,6 @@ nav ul.links li a:hover {
 }
 
 .slider li {
-  background-image: url("../assests/restuarnt.jpg");
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 320%;
@@ -213,7 +212,6 @@ nav ul.links li a:hover {
 
 @media screen and (min-width: 576px) {
   .slider li {
-    background-image: url("../assests/banner.jpg");
     background-position: right top;
     background-size: 200%;
   }
@@ -231,6 +229,24 @@ nav ul.links li a:hover {
     background-position: center -100px;
     background-size: 100%;
   }
+}
+
+.ones {
+  background-image: url("../assests/restuarnt.jpg");
+}
+
+@media screen and (min-width: 576px) {
+  .ones {
+    background-image: url("../assests/banner.jpg");
+  }
+}
+
+.twos {
+  background-image: url("../assests/banner3.jpg");
+}
+
+.threes {
+  background-image: url("../assests/banner4.jpg");
 }
 
 .banner-content {
