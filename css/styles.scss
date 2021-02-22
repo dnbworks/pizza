@@ -11,9 +11,27 @@
 
 @font-face {
   src: url("../fonts/NotoSans-Regular.ttf");
-  font-family:NotoSans;
+  font-family: NotoSans;
 }
 
+.fixed {
+  position: fixed;
+  top: -103px;
+  left: 0px;
+  z-index: 7;
+  width: 100%;
+  animation: down 0.5s ease-in forwards;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.616);
+}
+
+@keyframes down {
+  0% {
+    top: -103px;
+  }
+  100% {
+    top: 0px;
+  }
+}
 
 @mixin clearfix {
   &::after {
@@ -24,11 +42,11 @@
 }
 
 .ad {
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: rgba(168, 170, 70, 0.616);
   padding: 30px 15px;
 }
 
-nav{
+nav {
   background-image: url("../assests/bgcolor.jpg");
   .links-contianer {
     display: flex;
@@ -55,16 +73,12 @@ nav{
       color: #999966;
     }
   }
-  
-
- 
-
 }
 
 .logo {
   position: absolute;
   z-index: 4;
-  top:0 ;
+  top: 0;
   img {
     width: 100px;
     @media screen and (min-width: 576px) {
@@ -107,12 +121,11 @@ nav{
     margin-left: auto;
     height: 5px;
     border-radius: 6px;
-  
+
     // @media screen and (min-width: 576px) {
     //   height: 5px;
     //   margin-bottom: 5px;
     // }
-    
   }
 }
 
@@ -156,10 +169,10 @@ nav{
     display: block;
     padding: 10px 15px;
     border: none;
-    outline:none ;
+    outline: none;
     border-radius: 4px;
     &:focus {
-     outline: 2px solid #996600;
+      outline: 2px solid #996600;
     }
   }
   span {
@@ -172,22 +185,54 @@ nav{
 .slider-container {
   position: relative;
   background-color: #4e442f;
-
 }
 
 .slider {
   margin-bottom: 0px !important;
-
 }
 
-.slider li{
+.slider-container:hover .arrow-and-dots {
+  opacity: 1;
+}
+
+.arrow-and-dots {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  ul {
+    list-style: none;
+    &::after {
+      @include clearfix();
+    }
+
+    li {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      background-color: #ced42f;
+      margin-right: 20px;
+      float: left;
+    }
+  }
+
+  .arrows span {
+    color: #575757;
+    font-size: 1.5rem;
+  }
+}
+.slider li {
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 320%;
   height: calc(100vh - 107px);
   max-height: 600px;
   position: relative;
-
 
   @media screen and (min-width: 576px) {
     background-position: right top;
@@ -202,28 +247,22 @@ nav{
     background-position: center -100px;
     background-size: 100%;
   }
-
-  
 }
 
 .ones {
-
-    background-image: url("../assests/restuarnt.jpg");
-    @media screen and (min-width: 576px) {
-      background-image: url("../assests/banner.jpg");
-  
-    }
- 
+  background-image: url("../assests/restuarnt.jpg");
+  @media screen and (min-width: 576px) {
+    background-image: url("../assests/banner.jpg");
+  }
 }
 
 .twos {
-    background-image: url("../assests/banner3.jpg");
-
+  background-image: url("../assests/banner3.jpg");
 }
 
 .threes {
   background-image: url("../assests/banner4.jpg");
-} 
+}
 
 .banner-content {
   position: absolute;
@@ -233,115 +272,86 @@ nav{
   transform: translateY(-50%);
 
   h2 {
-    color: #cccccc;
+    color: #242424;
     font-size: 2rem;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 
   p {
-    color: #b1b1b1;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-}
-
-.arrow-and-dots {
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  width: 100%;
-  .arrows span {
-    color: #b1b1b1;
-    font-size: 2rem;
-    margin-right: 20px;
+    color: #e0e0e0;
+    font-family: opensans;
+    font-size: 14px;
   }
 }
 
 .slick-dots {
   position: absolute;
-  bottom:50px !important;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  bottom: 50px !important;
+  display: flex;
   list-style: none;
-  text-align: center;
 }
 
 .slick-dots li {
   margin-right: 20px;
-  width: 20px;
-  height: 20px;
-  background: red;
   border-radius: 50%;
 }
 
-
-.slick-dots li {
-  margin-right: 20px;
-}
-
-.slick-dots li button {
-  font-size: 0;
-  line-height: 0;
+.slick-dots button {
   display: block;
-  width: 100%;
-  height: 100%;
-  padding: 5px;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  background: red;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  background-color: white !important;
+  border-radius: 50%;
 }
 
-
-
-
-
+.slick-dots li.slick-active button {
+  transform: scale(1.3);
+  box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.616);
+}
 
 .sidenav {
   position: fixed;
-  top:-100vh;
+  top: -100vh;
   left: 0;
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.801);
-  z-index: 5;
+  z-index: 10;
   transition: all 0.3s;
 }
 
 .closebtn {
-  background-color:#7a7a1d ;
+  background-color: #7a7a1d;
   width: 50px;
   border-radius: 4px;
   padding: 5px 0;
   margin: 15px;
-  
+
   img {
-    width:40px;
+    width: 40px;
     display: block;
     margin: 0 auto;
   }
 }
-
-
-
-
 
 .shownav {
   top: 0;
 }
 
 main {
-  padding: 100px 0;
   position: relative;
+  padding: 20px 0;
   background-color: #4e442f;
 
+  @media screen and (min-width: 738px) {
+    padding: 100px 0;
+  }
+
   h4 {
-    color: #fff;
+    color: rgb(194, 171, 67);
     text-align: center;
-    font-size:18px;
+    font-size: 2rem;
   }
 
   .img-container {
@@ -350,9 +360,19 @@ main {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
- 
+  a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    font-family: NotoSans;
+  }
 }
 
 .one {
@@ -371,16 +391,14 @@ main {
   background-image: url("../assests/type4.jpg");
 }
 
-
-
-
 footer {
   background-image: url("../assests/footer.jpg");
   background-size: 100%;
-  padding: 20PX 0px;
+  padding: 20px 0px;
 
   .column {
     border-bottom: 1px dotted rgb(104, 104, 104);
+    border-right: none;
 
     &:nth-child(3) {
       border-right: none;
@@ -388,6 +406,7 @@ footer {
 
     @media screen and (min-width: 576px) {
       border-right: 1px dotted rgb(104, 104, 104);
+      border-bottom: none;
     }
   }
   h3 {
@@ -395,7 +414,7 @@ footer {
     color: #a9a8a8;
     margin-bottom: 5px;
   }
-  
+
   ul li {
     list-style: none;
   }
@@ -419,7 +438,8 @@ footer {
     text-align: center;
   }
 
-  label, input {
+  label,
+  input {
     display: block;
     margin-bottom: 5px;
   }
@@ -429,11 +449,11 @@ footer {
     width: 100%;
     border-radius: 5px;
     outline: 0;
-    border-style:solid;
+    border-style: solid;
     border-color: #eee;
   }
 
-  input[type='submit'] {
+  input[type="submit"] {
     padding: 8px 10px;
     text-transform: uppercase;
     background-color: rgb(69, 206, 206);
@@ -442,12 +462,66 @@ footer {
     border: none;
     outline: none;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.685);
-    
   }
 
   label {
     color: #c9c9c9;
     font-family: NotoSans;
     font-size: 14px;
+  }
+}
+
+.people-favorite {
+  background-color: #7a7a1d;
+  text-align: center;
+  padding: 30px 0;
+
+  .meals {
+    margin-bottom: 20px;
+  }
+
+  span {
+    display: block;
+  }
+
+  span.date {
+    color: rgb(37, 37, 37);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  span.food {
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+
+  p {
+    font-family: openSans;
+    font-size: 14px;
+  }
+
+  .section-title {
+    width: 400px;
+    position: relative;
+    margin: 0px auto;
+    padding: 20px 0;
+  }
+
+  .section-title span {
+    text-transform: uppercase;
+    color: rgb(245, 185, 56);
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 2rem;
+  }
+
+  .section-title p {
+    text-transform: uppercase;
+    color: #eee;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3rem;
   }
 }

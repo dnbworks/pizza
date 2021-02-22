@@ -15,8 +15,38 @@
   font-family: NotoSans;
 }
 
+.fixed {
+  position: fixed;
+  top: -103px;
+  left: 0px;
+  z-index: 7;
+  width: 100%;
+  -webkit-animation: down 0.5s ease-in forwards;
+          animation: down 0.5s ease-in forwards;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.616);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.616);
+}
+
+@-webkit-keyframes down {
+  0% {
+    top: -103px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes down {
+  0% {
+    top: -103px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
 .ad {
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: rgba(168, 170, 70, 0.616);
   padding: 30px 15px;
 }
 
@@ -201,6 +231,46 @@ nav ul.links li a:hover {
   margin-bottom: 0px !important;
 }
 
+.slider-container:hover .arrow-and-dots {
+  opacity: 1;
+}
+
+.arrow-and-dots {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+}
+
+.arrow-and-dots ul {
+  list-style: none;
+}
+
+.arrow-and-dots ul::after::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.arrow-and-dots ul li {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #ced42f;
+  margin-right: 20px;
+  float: left;
+}
+
+.arrow-and-dots .arrows span {
+  color: #575757;
+  font-size: 1.5rem;
+}
+
 .slider li {
   background-position: right top;
   background-repeat: no-repeat;
@@ -259,63 +329,44 @@ nav ul.links li a:hover {
 }
 
 .banner-content h2 {
-  color: #cccccc;
+  color: #242424;
   font-size: 2rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .banner-content p {
-  color: #b1b1b1;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.arrow-and-dots {
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  width: 100%;
-}
-
-.arrow-and-dots .arrows span {
-  color: #b1b1b1;
-  font-size: 2rem;
-  margin-right: 20px;
+  color: #e0e0e0;
+  font-family: opensans;
+  font-size: 14px;
 }
 
 .slick-dots {
   position: absolute;
   bottom: 50px !important;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   list-style: none;
-  text-align: center;
 }
 
 .slick-dots li {
   margin-right: 20px;
-  width: 20px;
-  height: 20px;
-  background: red;
   border-radius: 50%;
 }
 
-.slick-dots li {
-  margin-right: 20px;
+.slick-dots button {
+  display: block;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  background-color: white !important;
+  border-radius: 50%;
 }
 
-.slick-dots li button {
-  font-size: 0;
-  line-height: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 5px;
-  cursor: pointer;
-  border: 0;
-  outline: none;
-  background: red;
+.slick-dots li.slick-active button {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  -webkit-box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.616);
+          box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.616);
 }
 
 .sidenav {
@@ -325,7 +376,7 @@ nav ul.links li a:hover {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.801);
-  z-index: 5;
+  z-index: 10;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -349,15 +400,21 @@ nav ul.links li a:hover {
 }
 
 main {
-  padding: 100px 0;
   position: relative;
+  padding: 20px 0;
   background-color: #4e442f;
 }
 
+@media screen and (min-width: 738px) {
+  main {
+    padding: 100px 0;
+  }
+}
+
 main h4 {
-  color: #fff;
+  color: #c2ab43;
   text-align: center;
-  font-size: 18px;
+  font-size: 2rem;
 }
 
 main .img-container {
@@ -366,6 +423,24 @@ main .img-container {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main a {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  font-size: 18px;
+  font-family: NotoSans;
 }
 
 .one {
@@ -387,11 +462,12 @@ main .img-container {
 footer {
   background-image: url("../assests/footer.jpg");
   background-size: 100%;
-  padding: 20PX 0px;
+  padding: 20px 0px;
 }
 
 footer .column {
   border-bottom: 1px dotted #686868;
+  border-right: none;
 }
 
 footer .column:nth-child(3) {
@@ -401,6 +477,7 @@ footer .column:nth-child(3) {
 @media screen and (min-width: 576px) {
   footer .column {
     border-right: 1px dotted #686868;
+    border-bottom: none;
   }
 }
 
@@ -433,7 +510,8 @@ footer .copyright {
   text-align: center;
 }
 
-footer label, footer input {
+footer label,
+footer input {
   display: block;
   margin-bottom: 5px;
 }
@@ -447,7 +525,7 @@ footer input {
   border-color: #eee;
 }
 
-footer input[type='submit'] {
+footer input[type="submit"] {
   padding: 8px 10px;
   text-transform: uppercase;
   background-color: #45cece;
@@ -463,5 +541,60 @@ footer label {
   color: #c9c9c9;
   font-family: NotoSans;
   font-size: 14px;
+}
+
+.people-favorite {
+  background-color: #7a7a1d;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.people-favorite .meals {
+  margin-bottom: 20px;
+}
+
+.people-favorite span {
+  display: block;
+}
+
+.people-favorite span.date {
+  color: #252525;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.people-favorite span.food {
+  color: #363636;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.people-favorite p {
+  font-family: openSans;
+  font-size: 14px;
+}
+
+.people-favorite .section-title {
+  width: 400px;
+  position: relative;
+  margin: 0px auto;
+  padding: 20px 0;
+}
+
+.people-favorite .section-title span {
+  text-transform: uppercase;
+  color: #f5b938;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.people-favorite .section-title p {
+  text-transform: uppercase;
+  color: #eee;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3rem;
 }
 /*# sourceMappingURL=styles.css.map */

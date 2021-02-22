@@ -2,6 +2,8 @@ var menubtn = document.querySelector(".menu");
 var sidenav = document.querySelector(".sidenav");
 var closebtn = document.querySelector(".closebtn");
 
+var nav = document.querySelector("nav");
+
 closebtn.addEventListener("click", function(){
     sidenav.classList.remove("shownav");
 });
@@ -9,6 +11,18 @@ closebtn.addEventListener("click", function(){
 menubtn.addEventListener("click", function(){
     sidenav.classList.add("shownav");
 });
+
+
+window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 300) {
+        nav.classList.add('fixed');
+    } else{
+        nav.classList.remove('fixed');
+    }
+});
+
+
+
 
 $(document).ready(function(){
     $(".slider").slick({
@@ -21,3 +35,14 @@ $(document).ready(function(){
         //fade:true
     });
 });
+
+class Elements {
+    constructor(){
+        this.nav = document.querySelector('nav');
+    }
+    
+}
+
+var domElements = new Elements();
+
+console.log(domElements.nav);
