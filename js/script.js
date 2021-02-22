@@ -46,3 +46,12 @@ class Elements {
 var domElements = new Elements();
 
 console.log(domElements.nav);
+
+
+// mapbox 
+
+ mapboxgl.accessToken = 'pk.eyJ1IjoiZG9veW9uZyIsImEiOiJja2xnbXJ5ZzAyNHFmMnVzNjl3anNiZWo1In0.gUrQIyXrRvO7xxMxrvxYLg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+});
