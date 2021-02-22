@@ -51,7 +51,31 @@ console.log(domElements.nav);
 // mapbox 
 
  mapboxgl.accessToken = 'pk.eyJ1IjoiZG9veW9uZyIsImEiOiJja2xnbXJ5ZzAyNHFmMnVzNjl3anNiZWo1In0.gUrQIyXrRvO7xxMxrvxYLg';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11'
+
+
+
+navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+    enableHighAccuracy:true
 });
+
+function successLocation(position){
+    console.log(position);
+    setMaps([position.coords.longitude, position.coords.latitude]);
+}
+
+function errorLocation(){
+    setMaps([-0.127758, 51.507351]);
+}
+
+function setMaps(center){
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: center,
+        zoom: 15
+    });
+}
+
+
+
+// form validation
